@@ -1,0 +1,97 @@
+@media screen and (max-width: 1000px) {
+    .btn-adiciona-tarefa:hover {    
+        transform: scale(1.0);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    /* Container de adicionar tarefas */
+    .container-principal {
+        flex-direction: column;
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    .box-entradas::after {
+        display: none;
+    }
+
+    .box-entradas {
+        width: 100%;
+        height: auto;               
+    }    
+
+    #titulo  {
+        margin: 2rem 0;
+    }
+
+    .box-central {
+        position: static;
+        transform: translate(0);
+        margin: 0 auto;
+    }
+
+    /* Container da lista de tarefas */
+    .box-lista {
+        width: 100%;            
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .box-editar-tarefa {
+        width: 90%;        
+    }
+
+    .lista li {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: start;
+    }   
+    
+    .lista li div:nth-child(1) {
+          width: 100%;
+    }
+    
+
+    .lista li div:nth-child(2) {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        gap: 1rem;        
+    }
+
+    .editar-tarefa,
+    .remover-tarefa {
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;        
+        background-color: #563b8a;
+        border-radius: 2rem;
+    }
+
+    .lista li.tarefa-concluida .editar-tarefa,
+    .lista li.tarefa-concluida .remover-tarefa {
+        background-color: #6f9424;
+        border: 1px solid #00000052;
+    }
+}
+
+
+
+@media screen and (max-width: 450px) {
+
+    #titulo  {
+        font-size: 10vw;
+    }
+
+    .box-central {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #titulo  {
+        font-size: 35px;
+        text-wrap: wrap;
+    }
+}

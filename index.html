@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista De Tarefas</title>
+    <script src="js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/77ed705758.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/media_queries.css">
+</head>
+<body>
+    <div class="container-principal">
+        <div class="box-entradas">
+            <h1 id="titulo">LISTA DE TAREFAS</h1>
+            <div class="box-central">
+                <form id="form-tarefa">
+                    <h4>Digite a tarefa:</h4>
+                    <input type="text" class="input-tarefa" placeholder="O que preciso fazer hoje?">
+                    <button class="btn-adiciona-tarefa">Adicionar Tarefa</button>
+                </form>
+            </div>
+        </div>
+        <div class="box-lista">
+            <div class="box-planilha">
+                <ul class="lista"></ul>
+                <span id="lista-vazia">Não há tarefas no momento!</span>
+            </div>
+        </div>
+        <div class="box-editar-tarefa">
+            <h1>Editar Tarefa</h1>
+            <form>                
+                <input type="text" id="input-editar-tarefa" class="input-tarefa" placeholder="Digite aqui...">
+                <button class="btn-adiciona-tarefa" id="btn-editar-tarefa">Editar Tarefa</button>
+                <button id="btn-cancelar">Cancelar</button>
+            </form>
+        </div>
+</body>
+</html>
+

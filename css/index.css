@@ -1,0 +1,271 @@
+/* Colocando padrão para 10px */
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem; 
+}
+
+.container-principal {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/fundo.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.container-principal::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.container-principal.fundo-escuro::before {
+    background-color: #000000b7;
+}
+
+#titulo {  
+    font-size: 5rem;  
+    text-align: center;
+    margin-top: 10rem;
+    color: #eee;
+    text-shadow: 0rem 0.5rem 0.5rem #292929;
+    text-wrap: nowrap;   
+}
+
+h4 {
+    color: #eee;
+    font-weight: 100;
+}
+
+
+/* ------- Box de entrada das tarefas ------- */
+.box-entradas {    
+    width: 50%;
+    height: 100%;
+    position: relative;   
+}
+
+.box-entradas::after {
+    content: '';
+    width: 1px;
+    height: 90%;
+    background-color: #eeeeee4f;    
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.box-central {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);     
+}
+
+#form-tarefa h4 {
+    margin-bottom: 0.5rem;
+}
+
+.input-tarefa {
+    width: 100%;
+    outline: none;
+    padding: 1rem;
+    border-radius: 1rem; 
+    border: none;
+    margin-bottom: 1rem;
+    color: #2c2c2c;      
+}
+
+.input-tarefa:focus {
+    box-shadow: 0 0 0 2px #3A2663;
+}
+
+.btn-adiciona-tarefa {
+    display: block;
+    width: 100%;
+    margin: 2rem auto;
+    border-radius: 3rem;
+    padding: 1rem;
+    border: none;
+    background-color: #3A2663;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.btn-adiciona-tarefa:hover {    
+    transform: scale(1.1);
+}
+
+
+/* ------- Lista de tarefas ------- */
+
+.box-lista {
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    width: 50%;
+    height: 100%; 
+    overflow-y: auto;   
+}
+
+.box-planilha {
+    width: 90%;
+    height: 90%;
+    background-color: #eeeeee1e;    
+    border-radius: 1rem;
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+.lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 2rem;
+    color: #ffffff;  
+    background-color: #3A2663;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: 0.2s;
+}
+
+.lista li div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 85%; 
+}
+
+.icone-check {       
+    color: transparent;
+    padding: 0.2rem;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.lista li div:nth-child(1),
+.icone-check,
+.editar-tarefa,
+.remover-tarefa {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.editar-tarefa,
+.remover-tarefa {
+    color: #eee;
+}
+
+.editar-tarefa:hover,
+.remover-tarefa:hover {
+    transform: scale(1.2);
+}
+
+.lista li div:nth-child(1) p {
+    pointer-events: none;
+}
+
+
+/* Estilos para tarefas concluídas */
+
+.lista li.tarefa-concluida {
+    background-color: #6f9424;
+}
+
+.lista li.tarefa-concluida p {
+    color: #00000052;
+    text-decoration: line-through;
+}
+
+.lista li.tarefa-concluida .editar-tarefa,
+.lista li.tarefa-concluida .remover-tarefa {
+    color: #00000052; 
+}
+
+.lista li.tarefa-concluida .icone-check {
+    color: #fff;
+    background-color: #6f9424; 
+}
+
+/* Lista vazia */
+#lista-vazia {
+    display: block;
+    color: #3A2663;
+    background-color: none;
+    font-size: 3.5rem;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: listaVazia 1s ease-in-out infinite;
+}
+
+/* Animação do texto na lista vazia */
+@keyframes listaVazia {
+    0% {transform: translate(-50%, -50%);}
+    50% {transform: translate(-50%, -70%);}
+    100% {transform: translate(-50%, -50%);}
+}
+
+
+/* Editar Tarefa */
+.box-editar-tarefa {
+    display: none;
+    width: 50rem;
+    height: 30rem;
+    background-color: #563b8a;
+    border-radius: 1rem;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;   
+}
+
+.box-editar-tarefa h1 {    
+    text-align: center;
+    font-size: 4rem; 
+    color: #eee;
+    text-shadow: 0rem 0.5rem 0.5rem #292929; 
+    margin-bottom: 4rem
+}
+
+.box-editar-tarefa form {    
+    width: 80%;
+    margin: auto;
+}
+
+#btn-cancelar {
+    display: block;
+    border: none;
+    text-decoration: underline;
+    color: #eee;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: transparent;
+    transition: 0.2s;
+}
+
+#btn-cancelar:hover {
+    color: #00a2fa;
+}
